@@ -1,15 +1,21 @@
-const apiKey = "1a4f82d943f93178acc0f7676af43556"
-const cityName :string = "Michelfeld";
+let apiKey :string = "1a4f82d943f93178acc0f7676af43556"
+let cityName :string = "";
+const fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
 
 const btn = document.getElementById("EnterCity") as HTMLButtonElement;
 const city = document.querySelector("#location") as HTMLParagraphElement;
-const deg = document.querySelector("#degrees") as HTMLParagraphElement
+const deg = document.querySelector("#degrees") as HTMLParagraphElement;
+const cond = document.querySelector("#weatherCondition") as HTMLParagraphElement;
+const weatherIcon = document.querySelector("#icon") as HTMLParagraphElement;
+const cityInput = document.querySelector("#cityInput") as HTMLInputElement;
 
-const fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
-const kelvinCalc :number= -273
+btn.addEventListener('click', displayWeather)
+
+const kelvinCalc :number= -273;
 
 function loadWeather(){
-  return fetch(fetchURL)
+  cityName = cityInput.value;
+  return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => data)
 }
@@ -17,10 +23,10 @@ function loadWeather(){
 function displayWeather () {
   loadWeather()
     .then(data => {
-      deg.textContent = (Math.floor(kelvinCalc + data.main.temp)).toString()
-      city.textContent = (data.name)
+      deg.textContent = (Math.floor(kelvinCalc + data.main.temp)).toString() +"°"
+      city.textContent = data.name
+      cond.textContent = data.weather[0].main
+      weatherIcon.textContent = data.weather[0].icon
     })
-    .catch(err => err)
+    .catch(err => console.log(err))
 }
-
-btn.addEventListener('click', displayWeather)

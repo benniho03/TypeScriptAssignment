@@ -31,6 +31,7 @@ body {
 
 .output{
     height: 50vh;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -45,9 +46,15 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 15ch;
+    height: 10vh;
+    width: 50%;
 }
 .userInput button{
     height: 3em;
     width: 13em;
+}
+.userInput input{
+    height: 3em;
+    font-size: 2em;
+    text-align: center;
 }

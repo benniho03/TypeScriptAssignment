@@ -2,6 +2,7 @@ let apiKey :string = "1a4f82d943f93178acc0f7676af43556"
 let cityName :string = "";
 const fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
 
+const body = document.querySelector("body") as HTMLBodyElement;
 const btn = document.getElementById("EnterCity") as HTMLButtonElement;
 const city = document.querySelector("#location") as HTMLParagraphElement;
 const deg = document.querySelector("#degrees") as HTMLParagraphElement;
@@ -26,7 +27,6 @@ function displayWeather () {
       deg.textContent = (Math.floor(kelvinCalc + data.main.temp)).toString() +"°"
       city.textContent = data.name
       cond.textContent = data.weather[0].main
-      weatherIcon.textContent = data.weather[0].icon
     })
     .catch(err => console.log(err))
 }

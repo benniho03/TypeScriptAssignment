@@ -50,7 +50,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.outputTop{
+.outputTop, .outputBottom{
     height: 50%;
     width: 100%;
     display: flex;

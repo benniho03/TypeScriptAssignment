@@ -13,13 +13,21 @@
 
     <section class="glass">
         <div class="userInput">
-            <input id="cityInput" type="text">
+            <input id="cityInput" type="text" placeholder="New York" autofocus="on">
             <button id="EnterCity" type="submit">Weather It!</button>
         </div>
-        <div class="output">
-            <p id="degrees">-</p>
-            <p id="location">-</p>
-            <p id="weatherCondition">-</p>
+        <div class="displayContainer">
+            <div class="displayTop">
+                <div class="outputTop">
+                    <p id="degrees">-</p>
+                    <p id="location">-</p>
+                </div>    
+            </div>
+            <div class="displayBottom">
+                <div class="outputBottom">
+                    <p id="weatherCondition">-</p> 
+                </div>           
+            </div>
         </div>
     </section>
 

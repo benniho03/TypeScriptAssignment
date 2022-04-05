@@ -17,7 +17,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: white;
     min-height: 80vh;
     width: 60%;
     background: linear-gradient(to right bottom,
@@ -26,19 +25,39 @@ body {
     border-radius: 2rem;
     backdrop-filter: blur(2rem);
     box-shadow: 2px 1px 3px 1px rgb(0 0 0 / 50%);
-    border:rgba(0, 0, 0, 0.7)
+    
 }
 
-.output{
-    height: 50vh;
+.displayContainer{
+    height: 80vh;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.displayTop, .displayBottom{
+    height: 49%;
+    width: 99%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outputTop{
+    height: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
-.output p{
+.displayContainer p{
     font-size: 3em;
 }
 .userInput{

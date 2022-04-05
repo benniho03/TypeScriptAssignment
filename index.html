@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script defer src="./build/bundle.js" type="module"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-
+  <body>
     <section class="glass">
-        <div class="userInput">
-            <input id="cityInput" type="text" placeholder="New York" autofocus="on">
-            <button id="EnterCity" type="submit">Weather It!</button>
+      <div class="userInput">
+        <input
+          id="cityInput"
+          type="text"
+          placeholder="New York"
+          autofocus="on"
+        />
+        <button id="EnterCity" type="submit">Weather It!</button>
+      </div>
+      <div class="displayContainer">
+        <div class="displayTop">
+          <div class="outputTop">
+            <p id="degrees">-</p>
+            <p id="location">-</p>
+            <img
+                src="https://flagcdn.com/120x90/za.png"
+                srcset="https://flagcdn.com/240x180/za.png 2x"
+                width="120"
+                height="90"
+                alt="Country Flag">
+          </div>
         </div>
-        <div class="displayContainer">
-            <div class="displayTop">
-                <div class="outputTop">
-                    <p id="degrees">-</p>
-                    <p id="location">-</p>
-                </div>    
-            </div>
-            <div class="displayBottom">
-                <div class="outputBottom">
-                    <p id="weatherCondition">-</p> 
-                </div>           
-            </div>
+        <div class="displayBottom">
+          <div class="outputBottom">
+            <p id="weatherCondition">-</p>
+          </div>
         </div>
+      </div>
     </section>
-
-</body>
-
+  </body>
 </html>

@@ -7,7 +7,7 @@ const cityInput = document.querySelector("#cityInput") as HTMLInputElement;
 const flag = document.querySelector("img") as HTMLImageElement;
 
 const apiKey :string = "1a4f82d943f93178acc0f7676af43556"
-let cityName :string = "London";
+let cityName :string = "Michelfeld";
 let fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
 
 btn.addEventListener('click', displayWeather)
@@ -34,7 +34,7 @@ function displayWeather () {
 
 function loadWeather(){
   if(!cityInput.value){
-    cityName = "New York"
+    cityName = "Michelfeld"
   } else {
     cityName = cityInput.value;
   }
@@ -43,21 +43,3 @@ function loadWeather(){
   .then(response => response.json())
   .then(data => data)
 }
-
-
-// function getUserPosition () {
-//   navigator.geolocation.getCurrentPosition(success, error);
-// }
-
-// const success = (position :object) => position.coords.latitude
-// function successOld () {
-//   const lon = position.coords.longitude
-//   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
-//     .then(res => res)
-//     .then(data => data)
-//     .catch(err => err)
-// }
-
-// function error () {
-//   alert("Schade")
-// }

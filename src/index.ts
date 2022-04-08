@@ -1,27 +1,27 @@
-import { btn, deg, city, flag, icon, cityInput, minDeg, maxDeg, kelvinCalc } from "./dom-utils";
+import { isConstructorDeclaration } from "../node_modules/typescript/lib/typescript";
+import { btnSearch, deg, city, flag, icon, cityInput, minDeg, maxDeg, kelvinCalc, apiKey, btnLocation } from "./dom-utils";
 import { updateUI } from "./ui-actions";
 
-
-const apiKey :string = "1a4f82d943f93178acc0f7676af43556"
 let cityName :string = "Berlin";
 let fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
 
-btn.addEventListener('click', displayWeather)
+btnSearch.addEventListener('click', displayWeather)
+btnLocation.addEventListener('click', getLocation)
 
-navigator.geolocation.getCurrentPosition((position) => {
-  const lat :number= position.coords.latitude
-  const lon :number= position.coords.longitude
-
-  loadWeatherCoords(lat, lon)
-})
+function getLocation() :number[]{
+  let coords :number [] = []
+  navigator.geolocation.getCurrentPosition((position) => {
+    coords = [position.coords.latitude, position.coords.longitude]
+    return coords
+  })
+  return coords
+}
 
 function displayWeather () {
   loadWeather()
     .then(data => updateUI(data))
     .catch(err => console.log(err))
 }
-
-
 
 function loadWeather() {
   setDefaultCity()
@@ -30,8 +30,8 @@ function loadWeather() {
   .then(data => data)
 }
 
-function loadWeatherCoords(lat :number, lon :number){
-  return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+function loadWeatherCoords(getLocation :number []){
+  return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${getLocation[0]}&lon=${getLocation[1]}&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => console.log(data))
 }
@@ -46,3 +46,5 @@ function setDefaultCity(){
 
 //Abfrage mit Wert Berlin
 displayWeather();
+
+console.log(getLocation())

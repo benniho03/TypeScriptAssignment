@@ -11,13 +11,11 @@
   <body>
     <section class="glass">
       <div class="userInput">
-        <input
-          id="cityInput"
-          type="text"
-          placeholder="Berlin"
-          autofocus="on"
-        />
-        <button id="EnterCity" type="submit">Weather It!</button>
+        <input id="cityInput" type="text" placeholder="Berlin" autofocus="on" />
+        <div class="buttons">
+          <button id="EnterCity" type="submit">Search</button>
+          <button id="useLocation" type="submit">Use my Location</button>
+        </div>
       </div>
       <div class="displayContainer">
         <div class="displayTop">
@@ -25,19 +23,21 @@
             <p id="degrees">-</p>
             <p id="location">-</p>
             <img
-                id="flag"
-                src="https://flagcdn.com/80x60/za.png"
-                srcset="https://flagcdn.com/160x120/za.png 2x"
-                width="120"
-                height="90"
-                alt="Country Flag">
+              id="flag"
+              src="https://flagcdn.com/80x60/za.png"
+              srcset="https://flagcdn.com/160x120/za.png 2x"
+              width="120"
+              height="90"
+              alt="Country Flag"
+            />
           </div>
         </div>
         <div class="displayBottom">
           <div class="outputBottom">
             <img
-                id="weatherIcon"
-                src="http://openweathermap.org/img/wn/10d@2x.png">
+              id="weatherIcon"
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+            />
             <div class="degrees">
               <p id="maxDeg">-</p>
               <p id="minDeg">-</p>

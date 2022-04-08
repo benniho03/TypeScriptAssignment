@@ -9,7 +9,8 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    /* background: linear-gradient(to right top, #65dfc9, #6cdbeb); */
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,8 +27,7 @@ body {
             rgba(255, 255, 255, 0.3));
     border-radius: 2rem;
     backdrop-filter: blur(2rem);
-    box-shadow: 2px 1px 3px 1px rgb(0 0 0 / 50%);
-    
+    box-shadow: 8px 8px 0 rgb(32 33 37 / 10%);
 }
 
 .displayContainer{
@@ -50,6 +50,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .outputTop, .outputBottom{
     height: 50%;
     width: 100%;
@@ -57,6 +58,11 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.outputBottom{
+    flex-direction: row;
+    justify-content: center;
 }
 
 .displayContainer p{
@@ -71,11 +77,31 @@ body {
     width: 50%;
 }
 .userInput button{
-    height: 3em;
-    width: 13em;
+    height: 10vh;
+    width: 10vw;
+    border: transparent;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: .25em;
+    margin-top: 2vh;
+    box-shadow: 4px 4px 0 rgb(32 33 37 / 10%);
+    cursor: pointer;
 }
 .userInput input{
-    height: 3em;
-    font-size: 2em;
+    height: 20vh;
+    font-size: 2.5em;
     text-align: center;
+}
+
+#cityInput{
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: .5em;
+    box-shadow: 4px 4px 0 rgb(32 33 37 / 10%);
+}
+
+#maxDeg{
+    color: #cb1b16;
+}
+#minDeg{
+    color: #1368aa;
 }

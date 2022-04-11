@@ -1,19 +1,22 @@
 import { apiKey } from "./dom-utils";
+import { updateUI } from "./ui-actions";
 
-export function getLocation() {
-  return navigator.geolocation.getCurrentPosition(successCallback);
-}
-
-const successCallback = (position :GeolocationPosition) => {
-    return new Array(position.coords.latitude, position.coords.longitude)
-}
-
-export function loadWeatherCoords(getLocation: number[]) {
-    
+export function loadWeatherCoords(lat :number, lon :number) {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${getLocation[0]}&lon=${getLocation[1]}&appid=${apiKey}`)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+  )
+    .then((res) => res.json())
+    .then((data) => updateUI(data));
 }
-console.log(getLocation())
-getLocation()
+
+export function getWeatherByPosition() {
+  navigator.geolocation.getCurrentPosition(successCallback);
+
+  function successCallback(position: GeolocationPosition) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    loadWeatherCoords(lat, lon)
+  }
+
+  
+}

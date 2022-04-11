@@ -1,4 +1,4 @@
-import { deg, kelvinCalc, city, minDeg, maxDeg, flag, icon } from "./dom-utils"
+import { deg, kelvinCalc, city, minDeg, maxDeg, flag, icon, cityInput } from "./dom-utils"
 
 export function updateUI(data :any) {
     deg.textContent = (Math.floor(kelvinCalc + data.main.temp)).toString() +"°C"
@@ -10,4 +10,6 @@ export function updateUI(data :any) {
     flag.srcset = `https://flagcdn.com/160x120/${(data.sys.country.toLowerCase())}.png 2x`
 
     icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+
+    cityInput.placeholder = data.name
   } 

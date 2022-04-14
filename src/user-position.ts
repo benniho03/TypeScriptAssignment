@@ -1,5 +1,5 @@
 import { apiKey } from "./dom-utils";
-import { updateUI } from "./ui-actions";
+import { hideErrorMessage, showErrorMessage, updateUI } from "./ui-actions";
 
 export function loadWeatherCoords(lat :number, lon :number) {
   return fetch(
@@ -10,13 +10,16 @@ export function loadWeatherCoords(lat :number, lon :number) {
 }
 
 export function getWeatherByPosition() {
-  navigator.geolocation.getCurrentPosition(successCallback);
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
   function successCallback(position: GeolocationPosition) {
+    hideErrorMessage();
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     loadWeatherCoords(lat, lon)
   }
 
-  
+  function errorCallback() {
+    showErrorMessage()
+  }
 }

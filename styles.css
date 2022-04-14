@@ -77,7 +77,7 @@ body {
 }
 .userInput button{
     height: 4vh;
-    width: 10vw;
+    width: 20vh;
     border: transparent;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: .5em;
@@ -95,6 +95,7 @@ body {
     height: 20vh;
     font-size: 2.5em;
     text-align: center;
+    width: 80%;
 }
 
 #cityInput{
@@ -110,3 +111,28 @@ body {
 #minDeg{
     color: #1368aa;
 }
+
+.errorMessageContainer{
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: .5em;
+    box-shadow: 4px 4px 0 rgb(32 33 37 / 10%);
+}
+
+.errorMessage {
+    font-size: 2em;
+}
+
+@media only screen and (max-width: 1250px) {
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+  }

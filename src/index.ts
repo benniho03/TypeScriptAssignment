@@ -1,6 +1,6 @@
 import { btnSearch, cityInput, apiKey, btnLocation } from "./dom-utils";
-import { updateUI } from "./ui-actions";
-import { getWeatherByPosition, loadWeatherCoords } from "./user-position";
+import { hideErrorMessage, updateUI } from "./ui-actions";
+import { getWeatherByPosition } from "./user-position";
 
 let cityName :string = "Berlin";
 let fetchURL :string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
@@ -9,6 +9,7 @@ btnSearch.addEventListener('click', displayWeather)
 btnLocation.addEventListener('click', getWeatherByPosition)
 
 function displayWeather () {
+  hideErrorMessage()
   loadWeather()
     .then(data => updateUI(data))
     .catch(err => console.log(err))

@@ -1,7 +1,7 @@
 import { apiKey } from "./dom-utils";
 import { hideErrorMessage, showErrorMessage, updateUI } from "./ui-actions";
 
-export function loadWeatherCoords(lat :number, lon :number) {
+export function loadWeatherCoords(lat: number, lon: number) {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
   )
@@ -16,10 +16,10 @@ export function getWeatherByPosition() {
     hideErrorMessage();
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    loadWeatherCoords(lat, lon)
+    loadWeatherCoords(lat, lon);
   }
 
   function errorCallback() {
-    showErrorMessage()
+    showErrorMessage();
   }
 }

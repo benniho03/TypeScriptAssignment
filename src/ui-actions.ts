@@ -1,18 +1,18 @@
 import {
-  deg,
+  degDisplay,
   kelvinCalc,
-  city,
+  cityDisplay,
   minDeg,
   maxDeg,
   flag,
-  icon,
+  weatherIcon,
   cityInput,
   errorMessage,
 } from "./dom-utils";
 
 export function updateUI(data: any) {
-  deg.textContent = Math.floor(kelvinCalc + data.main.temp).toString() + "°C";
-  city.textContent = data.name;
+  degDisplay.textContent = Math.floor(kelvinCalc + data.main.temp).toString() + "°C";
+  cityDisplay.textContent = data.name;
   minDeg.textContent =
     Math.floor(kelvinCalc + data.main.temp_min).toString() + "°C";
   maxDeg.textContent =
@@ -21,7 +21,7 @@ export function updateUI(data: any) {
   flag.src = `https://flagcdn.com/80x60/${data.sys.country.toLowerCase()}.png`;
   flag.srcset = `https://flagcdn.com/160x120/${data.sys.country.toLowerCase()}.png 2x`;
 
-  icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
   cityInput.placeholder = data.name;
 }

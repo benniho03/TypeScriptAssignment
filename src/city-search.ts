@@ -3,6 +3,10 @@ import { hideErrorMessage, updateUI } from "./ui-actions";
 
 export let cityName: string = "Berlin";
 
+// let fetchURLCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+
+const fetchURLCity = (() => `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`);
+
 export function getWeatherByCity() {
   hideErrorMessage();
   loadWeather()
@@ -12,9 +16,7 @@ export function getWeatherByCity() {
 
 export function loadWeather() {
   setDefaultCity();
-  return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
-  )
+  return fetch(fetchURLCity())
     .then((response) => response.json())
     .then((data) => data);
 }

@@ -1,5 +1,5 @@
-export const btnSearchCity = document.getElementById("EnterCity") as HTMLButtonElement;
-export const btnSearchLocation = document.getElementById("useLocation") as HTMLButtonElement;
+export const btnSearchCity = document.querySelector("#EnterCity") as HTMLButtonElement;
+export const btnSearchLocation = document.querySelector("#useLocation") as HTMLButtonElement;
 export const cityDisplay = document.querySelector("#location") as HTMLParagraphElement;
 export const degDisplay = document.querySelector("#degrees") as HTMLParagraphElement;
 export const cityInput = document.querySelector("#cityInput") as HTMLInputElement;

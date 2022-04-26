@@ -10,7 +10,7 @@ import {
   errorMessage,
 } from "./dom-utils";
 
-export function updateUI(data: any) {
+export function updateUI(data :any) {
   degDisplay.textContent = Math.floor(kelvinCalc + data.main.temp).toString() + "°C";
   cityDisplay.textContent = data.name;
   minDeg.textContent =

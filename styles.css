@@ -84,7 +84,7 @@ body {
     margin-top: 2vh;
     box-shadow: 4px 4px 0 rgb(32 33 37 / 10%);
     cursor: pointer;
-    transition: 300ms;
+    transition: 200ms;
 }
 
 .userInput button:hover{

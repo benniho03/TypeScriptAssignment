@@ -10,8 +10,7 @@ export function loadWeatherCoords(lat: number, lon: number) {
 }
 
 export function getWeatherByPosition() {
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
+  
   function successCallback(position: GeolocationPosition) {
     hideErrorMessage();
     const lat = position.coords.latitude;
@@ -22,4 +21,6 @@ export function getWeatherByPosition() {
   function errorCallback() {
     showErrorMessage();
   }
+
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }

@@ -20,5 +20,5 @@ export function loadWeather() {
 }
 
 function setDefaultCity() {
-  !cityInput.value ? cityName = "Berlin" : cityName = cityInput.value;
+  cityInput.value ? cityName = cityInput.value : "Berlin";
 }

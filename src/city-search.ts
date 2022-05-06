@@ -1,5 +1,5 @@
 import { apiKey, cityInput } from "./dom-utils";
-import { hideErrorMessage, updateUI } from "./ui-actions";
+import { hideErrorMessage, showErrorMessage, updateUI } from "./ui-actions";
 
 export let cityName: string = "Berlin";
 
@@ -9,7 +9,7 @@ export function getWeatherByCity() {
   hideErrorMessage();
   loadWeather()
     .then((data) => updateUI(data))
-    .catch((err) => console.log(err));
+    .catch(() => showErrorMessage());
 }
 
 export function loadWeather() {

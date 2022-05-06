@@ -67,7 +67,7 @@ body {
 }
 
 .displayContainer p{
-    font-size: clamp(1.5em, 5vw, 3em);
+    font-size: clamp(1.5em, 5vw, 3.5em);
 }
 .userInput{
     display: flex;
@@ -138,5 +138,9 @@ body {
         align-items: center;
         flex-direction: column;
         width: 80%;
+    }
+
+    .outputBottom{
+        flex-direction: column;
     }
   }

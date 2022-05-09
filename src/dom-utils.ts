@@ -1,3 +1,5 @@
+import { ObjectLiteralElementLike } from "../node_modules/typescript/lib/typescript";
+
 export const btnSearchCity = document.querySelector("#EnterCity") as HTMLButtonElement;
 export const btnSearchLocation = document.querySelector("#useLocation") as HTMLButtonElement;
 export const cityDisplay = document.querySelector("#location") as HTMLParagraphElement;
@@ -11,3 +13,24 @@ export const errorMessage = document.querySelector(".errorMessageContainer") as 
 
 export const kelvinCalc :number= -273;
 export const apiKey :string = "1a4f82d943f93178acc0f7676af43556";
+
+export interface weather {
+    coord: {
+        lon: number;
+        lat: string;
+    };
+    main: {
+        temp: number
+        temp_max: number;
+        temp_min: number;
+    };
+    name: string;
+    sys: {
+        country: string;
+    }
+    timezone: number;
+    visibility: number;
+    weather: [{
+        icon: string;
+    }];
+}

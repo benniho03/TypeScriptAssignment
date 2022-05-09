@@ -8,9 +8,10 @@ import {
   weatherIcon,
   cityInput,
   errorMessage,
+  weather,
 } from "./dom-utils";
 
-export function updateUI(data :any) {
+export function updateUI(data :weather) {
   degDisplay.textContent = Math.floor(kelvinCalc + data.main.temp).toString() + "°C";
   cityDisplay.textContent = data.name;
   minDeg.textContent =

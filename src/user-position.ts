@@ -6,8 +6,8 @@ const fetchURLCoords = ((lat :number, lon :number) => `https://api.openweatherma
 export function loadWeatherCoords(lat: number, lon: number) {
   return fetch(fetchURLCoords(lat, lon))
     .then((res) => res.json())
-    .then((data) => updateUI(data));
-}
+    .then((data) => data);
+  }
 
 export function getWeatherByPosition() {
   
@@ -15,7 +15,9 @@ export function getWeatherByPosition() {
     hideErrorMessage();
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    loadWeatherCoords(lat, lon);
+    loadWeatherCoords(lat, lon)
+      .then(data => updateUI(data))
+      .catch(() => showErrorMessage());
   }
 
   function errorCallback() {

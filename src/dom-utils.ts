@@ -1,5 +1,3 @@
-import { ObjectLiteralElementLike } from "../node_modules/typescript/lib/typescript";
-
 export const btnSearchCity = document.querySelector("#EnterCity") as HTMLButtonElement;
 export const btnSearchLocation = document.querySelector("#useLocation") as HTMLButtonElement;
 export const cityDisplay = document.querySelector("#location") as HTMLParagraphElement;
